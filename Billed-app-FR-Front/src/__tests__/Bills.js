@@ -51,7 +51,7 @@ describe("Given I am connected as an employee", () => {
   /* const refuseButton = screen.getByTestId("btn-refuse-bill-d")
     c*/
 
-  test("A button to add a new bill must be diplayed", () => {
+  test("the button  add a new bill must be diplayed", () => {
     const Bills = new Bills({ document, onNavigate, store, localStorage });
     const addBillsButton = screen.getByTestId("btn-new-bill");
     expect(addBillsButton).toBeTruthy();
