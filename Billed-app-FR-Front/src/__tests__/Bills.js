@@ -125,7 +125,6 @@ describe("Given I am connected as an employee", () => {
         // add event listeners to eye icons
         iconEye.forEach((icon) => {
           icon.addEventListener("click", (e) => handleClickIconEye(icon));
-          // mimic user interaction
           userEvent.click(icon);
         });
         // eye.addEventListener('click', handleClickIconEye)
