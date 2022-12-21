@@ -30,6 +30,7 @@ describe("Given I am connected as an employee", () => {
       })
     })
     describe("When I am on Bills Page", () => {
+     
       test("Then bill icon in vertical layout should be highlighted", async () => {
 
         Object.defineProperty(window, 'localStorage', { value: localStorageMock })
@@ -47,6 +48,7 @@ describe("Given I am connected as an employee", () => {
         expect(windowIcon.classList.contains("active-icon")).toBeTruthy();//verifier la classe active-icon
 
       })
+      //tester la date 
       test("Then bills should be ordered from earliest to latest", () => {
         document.body.innerHTML = BillsUI({ data: bills.sort((a, b) => new Date(b.date) - new Date(a.date)) })
         const dates = screen.getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i).map(a => a.innerHTML)
@@ -72,7 +74,7 @@ describe("Given I am connected as an employee", () => {
 
   })
 
-
+//tester l'appel de la fonction en cliquant sur  le bouton
   describe("When I click on new bill button", () => {
     test("Then I should be sent on the new bill page", () => {
       Object.defineProperty(window, 'localStorage', { value: localStorageMock })
@@ -143,7 +145,7 @@ describe("Given I am connected as an employee", () => {
         const newBills = new Bills({ document, onNavigate, localStorage: window.localStorage, store: null })
         $.fn.modal = jest.fn() // modal mock
         const handleClickIconEye = jest.fn(() => { newBills.handleClickIconEye })
-        const firstEyeIcon = screen.getAllByTestId("icon-eye")[0];
+        const firstEyeIcon = screen.getAllByTestId("icon-eye")[0]; //on test le premier icone eye 
         firstEyeIcon.addEventListener("click", handleClickIconEye)
         fireEvent.click(firstEyeIcon)
         expect(handleClickIconEye).toHaveBeenCalled();

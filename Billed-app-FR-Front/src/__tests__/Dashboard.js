@@ -202,9 +202,9 @@ describe('Given I am connected as Admin, and I am on Dashboard page, and I click
         document, onNavigate, store, bills, localStorage: window.localStorage
       })
       const refuseButton = screen.getByTestId("btn-refuse-bill-d")
-      const handleRefuseSubmit = jest.fn((e) => dashboard.handleRefuseSubmit(e, bills[0])) //mocking la fonction handerefuse
+      const handleRefuseSubmit = jest.fn((e) => dashboard.handleRefuseSubmit(e, bills[0]))
       refuseButton.addEventListener("click", handleRefuseSubmit)
-      fireEvent.click(refuseButton)  //cearting and dispatching the event on the dom
+      fireEvent.click(refuseButton)
       expect(handleRefuseSubmit).toHaveBeenCalled()
       const bigBilledIcon = screen.queryByTestId("big-billed-icon")
       expect(bigBilledIcon).toBeTruthy()
@@ -308,4 +308,3 @@ describe("Given I am a user connected as Admin", () => {
 
   })
 })
-
