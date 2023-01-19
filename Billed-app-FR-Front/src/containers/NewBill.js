@@ -60,7 +60,7 @@ export default class NewBill {
     this.updateBill(bill)
     this.onNavigate(ROUTES_PATH['Bills'])
   }*/
-  //modification  Ne pas laisser l 'utilisateur charger un fichoer incompatible
+  //modification  Ne pas laisser l 'utilisateur charger un fichier incompatible
   handleChangeFile = e => {
     e.preventDefault()
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]

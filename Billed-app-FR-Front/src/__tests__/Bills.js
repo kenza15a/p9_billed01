@@ -84,7 +84,7 @@ describe("Given I am connected as an employee", () => {
       const onNavigate = (pathname) => { document.body.innerHTML = ROUTES({ pathname }) }
       const newBills = new Bills({ document, onNavigate, store: null, localStorage: window.localStorage })
       const btnNewBill = screen.getByTestId('btn-new-bill')
-      const handleClickNewBill = jest.fn(newBills.handleClickNewBill)
+      const handleClickNewBill = jest.fn(newBills.handleClickNewBill) //spy sur la focnction handlecLICK une mock function
       btnNewBill.addEventListener('click', handleClickNewBill)
       fireEvent.click(btnNewBill)
       expect(handleClickNewBill).toHaveBeenCalled()
@@ -113,30 +113,7 @@ describe("Given I am connected as an employee", () => {
 
   //verify icon eye
   describe('Given  I am on Bills page ', () => {
-    /* describe('When I click on the icon eye of a bill', () => {
-       test('A modal should open', () => {
-         localStorage.setItem("user", JSON.stringify({ type: "Employee", email: "a@a" }));
-         const root = document.createElement("div")
-         root.setAttribute("id", "root")
-         document.body.append(root)
-         router()
-         window.onNavigate(ROUTES_PATH.Bills)
-         const bill = new Bills({ document, onNavigate, store: null, localStorage: window.localStorage });
-         const handleClickIconEye = jest.fn(bill.handleClickIconEye)
-         // const eye = screen.getAllByTestId('icon-eye')
-         const iconEye = screen.getAllByTestId("icon-eye");/// here is the problem
-         // add event listeners to eye icons
-         iconEye.forEach((icon) => {
-           icon.addEventListener("click", (e) => handleClickIconEye(icon));
-           userEvent.click(icon);
-         });
-         // eye.addEventListener('click', handleClickIconEye)
-         // userEvent.click(eye)
-         expect(handleClickIconEye).toHaveBeenCalled()
-         const modale = screen.getByTestId('modaleFileEmployee')
-         expect(modale).toBeTruthy()
-       })
-     })*/
+
     describe("When I click on first eye icon", () => {
       test("Then modal should open", () => {
         Object.defineProperty(window, localStorage, { value: localStorageMock })
